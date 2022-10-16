@@ -3,16 +3,20 @@ import Layout from "../components/Layout";
 import Footer from "../components/Footer";
 import { graphql } from "gatsby";
 import profilesm from "../assets/profile_sm.png";
+import profilecolor from "../assets/profile_sm_color.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { BLOCKS, MARKS } from "@contentful/rich-text-types";
+import useDarkmode from "../hook/useDarkmode";
 
 export default function About({ data }) {
   const about = data.contentfulAbout.aboutMe;
   const myPhoto = data.contentfulAbout.myPhoto;
   const otherThings = data.contentfulAbout.otherThings;
   //   console.log(data, about, myPhoto, otherThings);
+  const [colorTheme, setTheme] = useDarkmode();
+  const profileColor = localStorage.theme;
 
   const options = {
     renderMark: {
@@ -43,11 +47,19 @@ export default function About({ data }) {
           </p>
         </div>
         <div>
-          <img
-            src={myPhoto.url}
-            alt="profile"
-            className="mb-16 lg:absolute lg:right-0"
-          ></img>
+          {profileColor === "light" ? (
+            <img
+              src={profilecolor}
+              alt="profile"
+              className="mb-16 lg:absolute lg:right-0"
+            />
+          ) : (
+            <img
+              src={myPhoto.url}
+              alt="profile"
+              className="mb-16 lg:absolute lg:right-0"
+            />
+          )}
         </div>
       </section>
 
