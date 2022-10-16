@@ -1,17 +1,30 @@
 import React from "react";
 import useDarkmode from "../hook/useDarkmode";
+import { Link } from "gatsby";
 
 export default function Nav() {
   const [colorTheme, setTheme] = useDarkmode();
   return (
-    <div className="py-8">
+    <div className="py-8 flex flex-row justify-between">
+      <div>
+        <nav>
+          <ul className="flex flex-row gap-8">
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
+          </ul>
+        </nav>
+      </div>
       <div
         onClick={() => setTheme(colorTheme)}
         className="w-12 h-12 flex justify-center items-center cursor-pointer"
       >
         {colorTheme === "light" ? (
           <svg
-            className="w-8 h-8"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -26,7 +39,7 @@ export default function Nav() {
           </svg>
         ) : (
           <svg
-            className="w-8 h-8"
+            className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
