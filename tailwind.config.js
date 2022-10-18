@@ -14,6 +14,9 @@ module.exports = {
         lightGrey: "#292A2C",
         main: "#292A2C",
       },
+      spacing: {
+        128: "38rem",
+      },
     },
   },
   plugins: [],

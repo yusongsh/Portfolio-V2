@@ -51,13 +51,13 @@ export default function About({ data }) {
             <img
               src={profilecolor}
               alt="profile"
-              className="mb-16 lg:absolute lg:right-0"
+              className="mb-16 lg:absolute lg:right-0 lg:z-0"
             />
           ) : (
             <img
               src={myPhoto.url}
               alt="profile"
-              className="mb-16 lg:absolute lg:right-0"
+              className="mb-16 lg:absolute lg:right-0 lg:z-0"
             />
           )}
         </div>
