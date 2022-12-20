@@ -3,9 +3,11 @@ import Layout from "../components/Layout";
 import { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import { Link } from "gatsby";
-import Spline from "@splinetool/react-spline";
+import { motion } from "framer-motion";
+import Popchew from "../assets/popchew_logo.png";
 
 const IndexPage = () => {
+  const [isImageVisible, setIsImageVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -37,12 +39,9 @@ const IndexPage = () => {
           Loading...
         </div>
       ) : (
-        <div className="p-8 md:px-16 lg:px-24 xl:px-32 pb-10 dark:bg-main dark:text-white transition duration-500 h-full min-h-screen flex flex-col">
+        <div className="p-8 md:px-16 lg:px-24 xl:px-32 pb-10 bg-[url('../assets/stars_black.svg')] dark:bg-main dark:bg-[url('../assets/stars.svg')] dark:text-white transition duration-500 h-full min-h-screen flex flex-col">
           <Nav />
           <div className="flex flex-col justify-center m-auto w-full h-full">
-            {/* <div className="w-full h-128 object-contain absolute left-96 z-10">
-              <Spline scene="https://prod.spline.design/lG6MPcuiX0Mu2f8J/scene.splinecode" />
-            </div> */}
             <div>
               <h1 className="text-5xl font-semibold uppercase leading-relaxed">
                 Hey, i’m Yusong Shi
@@ -50,11 +49,32 @@ const IndexPage = () => {
               </h1>
             </div>
             <div className="mt-6">
-              Web Developer & UX/UI Designer
-              <br /> Currently working as a freelancer
+              Product Designer & Frontend Developer
+              <br /> Currently working at{" "}
+              <span
+                onMouseEnter={() => setIsImageVisible(true)}
+                onMouseLeave={() => setIsImageVisible(false)}
+              >
+                {isImageVisible ? (
+                  <a href="https://popchew.com/" target="_blank" rel="nofollow">
+                    <img
+                      src={Popchew}
+                      alt="Revealed image"
+                      className="w-8 h-auto relative inline-block ml-4"
+                    />
+                  </a>
+                ) : (
+                  <span className="cursor-pointer underline underline-offset-4">
+                    Popchew
+                  </span>
+                )}
+              </span>
             </div>
-            <Link to="/test">
-              <div className="flex flex-row gap-8 mt-12 hover:pl-4">
+            <Link to="/about">
+              <motion.div
+                className="flex flex-row gap-8 mt-12"
+                whileHover={{ x: 10 }}
+              >
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -69,9 +89,10 @@ const IndexPage = () => {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   ></path>
                 </svg>
-                <p>more about me</p>
-              </div>
+                <motion.p whileHover={{ x: 15 }}>more about me</motion.p>
+              </motion.div>
             </Link>
+            {/* <Link to="/test">Test</Link> */}
           </div>
         </div>
       )}

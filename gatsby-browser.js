@@ -3,7 +3,7 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 
 export const wrapPageElement = ({ element }) => (
-  <AnimatePresence initial={true} exitBeforeEnter>
+  <AnimatePresence initial={false} exitBeforeEnter>
     {element}
   </AnimatePresence>
 );

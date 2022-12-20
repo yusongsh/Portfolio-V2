@@ -13,9 +13,13 @@ module.exports = {
       colors: {
         lightGrey: "#292A2C",
         main: "#292A2C",
+        navBg: "#FEDC80",
       },
       spacing: {
         128: "38rem",
+      },
+      strokeWidth: {
+        1.5: "1.5px",
       },
     },
   },
