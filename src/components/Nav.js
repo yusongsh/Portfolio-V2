@@ -1,6 +1,7 @@
 import React from "react";
 import useDarkmode from "../hook/useDarkmode";
-import profile from "../assets/profile_rounded.png";
+import profileLight from "../assets/profile_light.png";
+import profileDark from "../assets/profile-dark.png";
 import { Modal } from "react-responsive-modal";
 import { Link } from "gatsby";
 import { useState } from "react";
@@ -11,14 +12,22 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="py-8 flex flex-row justify-between items-center">
+    <div className="py-8 flex flex-row justify-between items-center h-full ">
       <div>
         <Link to="/">
-          <img
-            src={profile}
-            alt="profile"
-            className="w-10 h-10 shadow-md rounded-full"
-          />
+          {colorTheme === "light" ? (
+            <img
+              src={profileDark}
+              alt="profile"
+              className="w-14 h-14 shadow-md rounded-full"
+            />
+          ) : (
+            <img
+              src={profileLight}
+              alt="profile"
+              className="w-14 h-14 shadow-md rounded-full"
+            />
+          )}
         </Link>
       </div>
       <div className="flex flex-row items-center">
@@ -61,42 +70,108 @@ export default function Nav() {
         <div>
           <div onClick={() => setOpen(true)} className="cursor-pointer">
             <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 48 48"
+              width="48"
+              height="48"
+              className="fill-main/0 stroke-black dark:stroke-white stroke-1.5"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
+              <title>Menu</title>
+              <circle
+                cx="12"
+                cy="12"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="24"
+                cy="12"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="36"
+                cy="12"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="36"
+                cy="24"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="36"
+                cy="36"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="24"
+                cy="36"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="12"
+                cy="36"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="12"
+                cy="24"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
+              <circle
+                cx="24"
+                cy="24"
+                r="2"
+                opacity="1"
+                transform-origin="0px 0px"
+              ></circle>
             </svg>
           </div>
           <nav
             className={
               open
-                ? "bg-red-400 absolute left-0 top-0 w-screen h-screen flex flex-col justify-between p-8 md:px-16 lg:px-24 xl:px-32 z-30 transition ease-in-out duration-500"
+                ? "bg-navBg fixed left-0 top-0 w-full h-full flex flex-col justify-between p-8 md:px-16 lg:px-24 xl:px-32 z-30 transition ease-in-out duration-500 delay-500"
                 : "hidden"
             }
           >
             <div className="py-8 flex flex-row items-center justify-between">
               <div className="flex flex-row items-center gap-8 uppercase font-semibold">
                 <Link to="/">
-                  <img
-                    src={profile}
-                    alt="profile"
-                    className="w-10 h-10 shadow-md rounded-full"
-                  />
+                  {colorTheme === "light" ? (
+                    <img
+                      src={profileDark}
+                      alt="profile"
+                      className="w-14 h-14 shadow-md rounded-full"
+                    />
+                  ) : (
+                    <img
+                      src={profileLight}
+                      alt="profile"
+                      className="w-14 h-14 shadow-md rounded-full"
+                    />
+                  )}
                 </Link>
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{
-                    duration: 0.4,
+                    duration: 1.4,
                   }}
                 >
                   <p>Yusong Shi</p>
@@ -141,23 +216,81 @@ export default function Nav() {
                 </div>
                 <div onClick={() => setOpen(false)} className="cursor-pointer">
                   <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 48 48"
+                    width="48"
+                    height="48"
+                    className="fill-main/0 stroke-black dark:stroke-white stroke-1.5"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    ></path>
+                    <title>Menu</title>
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="30"
+                      cy="18"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="36"
+                      cy="12"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="30"
+                      cy="30"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="36"
+                      cy="36"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="18"
+                      cy="30"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="12"
+                      cy="36"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
+                    <circle
+                      cx="24"
+                      cy="24"
+                      r="2"
+                      opacity="1"
+                      transform-origin="0px 0px"
+                    ></circle>
                   </svg>
                 </div>
               </div>
             </div>
-            <motion.div className="pb-64 uppercase text-5xl flex flex-col gap-8">
+            <motion.div className="pb-16 uppercase text-5xl flex flex-col gap-8">
               <motion.span
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
