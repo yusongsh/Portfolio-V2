@@ -20,9 +20,6 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
-  flags: {
-    DEV_SSR: true,
-  },
   siteMetadata: {
     title: `Portfolio V2`,
     siteUrl: `https://www.yourdomain.tld`,
