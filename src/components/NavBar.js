@@ -33,8 +33,9 @@ export default function NavBar() {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
         transition={{
-          duration: 0.2,
+          duration: 1,
         }}
+        className="bg-red-300 p-32"
       >
         <p>Fading text</p>
       </motion.div>
