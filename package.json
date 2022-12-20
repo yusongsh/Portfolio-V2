@@ -24,6 +24,7 @@
     "@splinetool/runtime": "^0.9.123",
     "framer-motion": "^7.5.4",
     "gatsby": "^4.24.4",
+    "gatsby-cli": "^5.3.1",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-source-contentful": "^7.22.0",
